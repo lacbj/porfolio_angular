@@ -10,7 +10,19 @@
     "carrusel1"    : "assets/img/fotoblogene2709.png",
     "carrusel2"    :"assets/img/trabajo-en-equipo.jpeg",
     "username"     :"leonel",
-  "usercomtraseña" :"1234"
+  "usercomtraseña" :"1234",
+
+
+
+
+"personal": {
+  "nombre":"Leonel Crespo",
+  "posicion": "programador",
+  "ubicacion": "Buenos Aires ( Argentina)"
+
+
+
+}
 
 
 }

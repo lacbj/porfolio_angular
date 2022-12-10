@@ -2,7 +2,24 @@
 <br>
 <br>
 <main class="container">
-    <div class="bg-light p-5 rounded">
+    <div class="bg-light p-5 rounded" *ngFor="let educacion of educaciones" >
+
+
+      <div class="col-3">
+{{educacion.tituloEdu}}
+
+
+      </div>
+      <div class="col-3">
+        {{educacion.fechaEdu}}
+        
+        
+              </div>
+              <div class="col-3">
+                {{educacion.descEdu}}
+                
+              </div>   
+      
       <h1>ESTUDIOS</h1>
     
       <div class="bnt-edit  position-relative top-0 start-100" ><a href="#" class="btn-right " >Editar<i class="fa fa-pen"></i></a></div>
@@ -25,4 +42,6 @@
           de la informática. (Sep-2021 - dic. 2021)</P>      
           </div> 
         </div>
+        
+    
     </main>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PortfolioService } from '../../servicios/portfolio.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { PortfolioService } from '../../servicios/portfolio.service';
 })
 export class EncabezadoComponent implements OnInit {
   miPorfolio:any;
+  
 
   constructor(private datosPortfolio:PortfolioService) { }
 
@@ -15,6 +17,10 @@ export class EncabezadoComponent implements OnInit {
     this.datosPortfolio.odtenerDatos().subscribe(data=>{
       console.log(data);
       this.miPorfolio = data;
+      
+       
+      
+
     });
   }
 

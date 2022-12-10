@@ -1,17 +1,17 @@
 <!-- datos -->
 <section class="contenedorDatos">
-    <div id="info-data" class="lista">
+    <div id="info-data" class="lista" *ngIf="usuario">
       <ul id="info-detaye">
-        <h1>Leonel Crespo</h1>      
-        <div id="info-conpany">Informatica</div>
-        <div id="info-contacts">
-          <span>Buenos Aires ( Argentina)</span>
+        <h1>{{usuario.nombre}}{{usuario.apellido}}</h1>      
+        <div id="info-conpany"></div>//posicion
+        <div id="info-contacts" *ngIf="usuario" >
+          <span >{{usuario.titulo}}</span>//ubicacion
           <br>
           <span><a>Informacion de contacto</a></span>
           <br>
         </div>
         <div class="cajacontacto">
-          <h3><b>REDES SOCIALES</b></h3>
+          <h3><b></b></h3>
           <h2>
             <a class="fa-brands fa-whatsapp"  href="https://wa.me/541136770583" target="_blank"></a>
             <a class="fa-brands fa-linkedin"  href="https://www.linkedin.com/in/crespoleonel35" target="_blank" ></a>
@@ -48,8 +48,8 @@
         </div>
         </section>  
       </article>
-      <article>
-        <h3>Programdor FullStack Java</h3>
+      <article *ngIf="usuario" >
+        <h3>{{usuario.titulo}}</h3>
         <h3>#yoprogramo</h3>
       </article>
   </section>
