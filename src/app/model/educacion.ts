@@ -1,10 +1,8 @@
-import { Data } from "popper.js";
-
 export interface Educacion{
 
 idEdu:number;
 descEdu:string;
-fechaEdu:string;
+fechaEdu:number;
 imagenEdu:string;
 tituloEdu:string;
 

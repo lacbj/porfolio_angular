@@ -11,8 +11,10 @@ import { EstudiosComponent } from './conponentes/estudios/estudios.component';
 import{HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './conponentes/home/home.component';
 import { LoginComponent } from './conponentes/login/login.component';
+import {  FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
+
     AppComponent,
     EncabezadoComponent,
     AcercaDeComponent,
@@ -21,12 +23,16 @@ import { LoginComponent } from './conponentes/login/login.component';
     EstudiosComponent,
     HomeComponent,
     LoginComponent
+  
+    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
