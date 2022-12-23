@@ -17,10 +17,6 @@ export class EstudiosComponent implements OnInit {
   public editEducacion: Educacion | undefined;
   public deleteEducacion :Educacion | undefined;
   
-
- 
- 
- 
   constructor(private educacionService:EducacionService) { }
 
   ngOnInit(): void {
