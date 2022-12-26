@@ -1,101 +1,355 @@
-<!-- PROYECTOS REALIZADOS-->
-<section class="bg-light p-5 rounded">
-    <h1 class="titulo" id="proyectos"> PROYECTOS</h1>
+<!-- PROYECTO -->
+
+<br>
+<br>
+<main class="container">
+  <div class="bg-light p-5 rounded">
+   <h1>Proyectos</h1>
+
+   <div class="text-right">
+   <button type="button" class="btn btn-primary" data-bs-toggle="modal"  (click)="onOpenModal('add')" data-bs-target="#addProyectoModal"> 
+   <a class="nav-link" style="color:#fff">
+   Añadir Proyecto<span class="sr-only">(current)</span></a>
+   </button>
+   </div>
+ 
+   <div id="main-container">
+   <div class="bg-light p-5 rounded" *ngFor="let proyecto of proyectos" > 
+       <!-- Comienza la cuadricula -->   
+    <div class="row">
+     <div class="col-3">  
+     <img class="foto-proyectos" [src]="proyecto.imagenProyect">    
+     </div>
+     <div class="col-6">
+       <h2>{{proyecto.tituloProyect}}</h2>
+        {{proyecto.descProyect}} 
+        <div>
+          <button type="button" class="btn btn-primary p-1"> 
+            <a class="nav-link" style="color:#fff" href="https://github.com/lacbj">
+            Ver Proyecto</a>
+            </button>
+        </div>       
+     </div>  
+            <!-- button editar lapiz -->
+     <div class="col-3 text-right bg-light">
+               <h3>{{proyecto.fechaProyect}}</h3>
+                 <a  data-bs-toggle="modal" 
+                 (click)="onOpenModal('edit',proyecto)"
+                 data-bs-target="#editProyectoModal"
+                  class="btn btn-primary tooltips"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  data-original-title="Edit"
+                  ><i class="fa fa-pen"></i></a>
+            <!-- button delete x -->
+                <a data-bs-toggle="modal" 
+                 (click)="onOpenModal('delete',proyecto)"
+                 data-bs-target="#deleteModalLabel3"
+ 
+                 class="btn btn-secondary tooltips"
+                 data-placement="top"
+                 data-toggle="tooltip"
+                 data-original-title="delete"
+                 ><i class="fa fa-times"></i></a>
+                 </div>             
+             </div>
+           </div>       
+         </div> 
+
+
     
-    <div class="bnt-edit position-relative top-0 start-100"><a href="#" class="btn-right">Editar<i class="fa fa-pen"></i></a></div>
+    <!-- modal añadir experiencia -->
+   <div class="modal fade" 
+   id='addProyectoModal'
+    tabindex="-1" 
+    role="dialog"    
+    aria-labelledby='addProyectoModalLabel' 
+    aria-hidden="true" >
+ 
+    <div class="modal-dialog" role="document">
+ 
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id='addProyectoModalLabel'> Añadir Proyecto</h5>
+ 
+       <button 
+       type="button" 
+       class="close"
+       data-bs-dismiss="modal" 
+       aria-label="Close"> 
+       <span aria-hidden="true">&times;</span>
+      </button> 
+ 
+    </div>
+    <div class="modal-body">
+      <form #addForm= "ngForm" (ngSubmit)="onAddProyecto(addForm)">
+     <div class="form-group">
+      <label for="tituloProyect">Titulo</label>
+      <input type="text"
+      ngModel
+      name="tituloProyect" 
+      class="form-control"
+       id="tituloProyect" 
+       placeholder="Titulo" 
+      required>
+     </div>
+ 
+        <div class="form-group">
+         <label for="fechaProyect">Fecha</label>
+         <input type="text"
+         ngModel
+         name="fechaProyect"
+          class="form-control" 
+          id="fechaProyect" 
+          placeholder="Fecha" 
+          required>
+        </div>
+ 
+        <div class="form-group">
+         <label for="descProyect">Descripcion</label>
+         <input type="text"
+         ngModel
+         name="descProyect"
+          class="form-control" 
+          id="descProyect" 
+          placeholder="Descripcion" 
+          required>
+        </div>
+ 
+        <div class="form-group">
+         <label for="imagenProyect">Imagen</label>
+         <input type="text"
+         ngModel
+         name="imagenProyect" 
+         class="form-control" 
+         id="imagenProyect" 
+         placeholder="Imagen" 
+         required>
+ 
+        </div>
+        <div class="form-group">
+          <label for="urlProyect">Url del proyecto</label>
+          <input type="text"
+          ngModel
+          name="urlProyect" 
+          class="form-control" 
+          id="urlProyect" 
+          placeholder="Url" 
+          required>
+  
+         </div>
+ 
+        <div class="modal-footer">
+         <button
+         type="button"
+         
+         aria-label="close"
+         id="add-proyecto-form"
+         class="btn btn-secondary"
+         data-bs-dismiss="modal"
+         >
+         
+         Cerrar
+         </button>
+         <button
+         [disabled]="addForm.invalid"
+         type="submit"
+         class="btn btn-primary"
+         >
+         Añadir cambios
+         </button>
+        </div>
+         </form>
+       </div>
+     </div>
+ 
+    </div>
+     
+   </div>
+ 
+     <!-- Modal edit experiencia -->
+ 
+  <div class="modal fade" 
+  id='editProyectoModal'
+  tabindex="-1" 
+  role="dialog"    
+  aria-labelledby='proyectoEditModalLabel' 
+  aria-hidden="true" >
+ 
+  <div class="modal-dialog" role="document">
+ 
+   <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title" 
+       id='updateProyectoModalLabel'
+       > Edit Proyecto {{editProyecto?.tituloProyect}}</h5>
+ 
+     <button 
+     type="button" 
+     class="close"
+     data-bs-dismiss="modal" 
+     aria-label="Close"> 
+     <span aria-hidden="true">&times;</span>
+    </button> 
+ 
+    </div>
+     <div class="modal-body">
+       <form #editForm= "ngForm">
+      <div class="form-group">
+       <label for="name">Titulo</label>
+       <input type="text"
+       ngModel="{{editProyecto?.tituloProyect}}"
+       name="tituloProyect" 
+       class="form-control"
+        id="tituloProyect"
+        aria-describedby="emailHelp" 
+        placeholder="titulo" 
+       >
+      </div>
+ 
+       <input type="hidden"
+       ngModel="{{editProyecto?.idProyect}}"
+       name="idProyect"
+        class="form-control" 
+        id="idProyect" 
+        placeholder="" 
+        >
+      
+ 
+      <div class="form-group">
+       <label for="descProyect">Descripcion</label>
+       <input type="text"
+       ngModel="{{editProyecto?.descProyect}}"
+       name="descProyect"
+        class="form-control" 
+        id="descProyect" 
+        placeholder="Descripcion" 
+        >
+      </div>
+ 
+      <div class="form-group">
+       <label for="fechaProyect">fecha</label>
+       <input type="text"
+       ngModel="{{editProyecto?.fechaProyect}}"
+       name="fechaProyect" 
+       class="form-control" 
+       id="fechaProyect" 
+       placeholder="fecha" 
+       >
+ 
+      </div>
+ 
+      <div class="form-group">
+       <label for="imagenProyect">Imagen url</label>
+       <input type="text"
+       ngModel="{{editProyecto?.imagenProyect}}"
+       name="imagenProyect" 
+       class="form-control" 
+       id="imagenProyect" 
+       placeholder="Imagen url" 
+       >
+ 
+      </div>
+      <div class="form-group">
+        <label for="urlProyect">Url del proyecto</label>
+        <input type="text"
+        ngModel
+        name="urlProyect" 
+        class="form-control" 
+        id="urlProyect" 
+        placeholder="Url" 
+        required>
+
+       </div>
+ 
+      <div class="modal-footer">
+       <button
+       type="button"
+       id=""
+       data-bs-dismiss="modal"
+       class="btn btn-secondary"
+       >
+       close
+       </button>
+       <button
+       (click)="onUpdateProyecto(editForm.value)"
+       data-bs-dismiss="modal"
+       class="btn btn-primary"
+       >
+       Guardar  cambios
+       </button>
+      </div>
+       </form>
+     </div>
+   </div>
+ 
+   </div>
+   
+   
+  </div>
+    <!-- modal delete education -->
+ 
+ <div  
+  class="modal fade" 
+  id='deleteModalLabel3'
+  tabindex="-1" 
+  role="dialog"    
+  aria-labelledby='deleteModalLabel3' 
+  aria-hidden="true">
+ 
+  <div class="modal-dialog" role="document">
+ 
+   <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title" id='deleteModalLabel3'>Delete Experiencia</h5>
+ 
+     <button 
+     type="button" 
+     class="close"
+     data-bs-dismiss="modal" 
+     aria-label="Close"> 
+     <span aria-hidden="true">&times;</span>
+    </button> 
+ 
+    </div>
+     <div class="modal-body">
+       <p>
+     ¿esta seguro que deseas eliminar este Proyecto?
+     {{deleteProyecto?.tituloProyect}}?
+ 
+       </p>
+ 
     
-    <br> 
-    <!-- Proyectos varios--> 
-    <div class="contenedor"> 
-        <figure>
-            <img src="../assets/img/formularioBoostrap.png" alt="ERROR">
-            <div class="capa">
-              <h3>Diseño Web</h3>
-              <p>
-                Prototipo y maqueto tus diseños estáticos y los convierto en increíbles sitios y aplicaciones <i>web</i>
-                responsivas, óptimas y accesibles.
-                HTML, CSS3, Boostrap, Java Scrip, Java
-                -<i>HTMl</i>.<br>                
-                -<i>Css3</i>.<br>
-                -<i>Boostrap</i>.<br>
-                -<i>JavaScrip</i>.<br>
-                -<i>Java</i><br>
-              </p>
-        </div>
-        </figure>    
-        <figure>
-            <img src="../assets/img/AgenciaBoostrap.png" alt="">
-            <div class="capa">
-              <h3>Programación <i>Web</i></h3>
-              <p>
-                Desarrollo sitios y aplicaciones para plataformas <i>Web</i>. Te ayudo a construir tu proyecto de principio a
-                fin:<i>Backend</i>, Data base & <i>Frontend</i>
-                -<i>Boostrap</i>.<br>
-                -<i>Css3</i>.<br>               
-                -<i>Apache NetBeans</i>.<br>
-                -<i>XAMPP</i>.<br>
-                -<i>phpmyadmin</i>.<br>
-                -<i>Sql, MySQL Workbech</i><br>                
-              </p>
-        </div>
-        </figure>    
-        <figure>
-            <img src="../assets/img/OradoresCodoaCodoBoostrap.png" alt="">
-            <div class="capa">
-              <h3><i>Web Hosting</i></h3>
-              <p>
-                ¿No cuentas con dominio y hospedaje <i>web</i> para tu proyecto? No te preocupes de esas cosas técnicas me
-                encargo yo.                
-              </p>
-        </div>
-        </figure>   
-        <figure>
-            <img src="../assets/img/pc.escritorio1.jpeg" alt="">
-            <div class="capa">
-              <h3>Programador Junior</h3>
-              <p>
-                Mantenimiento y desarrollo de nuevas funcionalidades  para aplicativos web y móvil
-                Utilizando herramientas como:<br>
-                -Java 8.<br>
-                -<i>MySQL</i>.<br>                
-                -<i>POO</i>.<br>
-                -<i>sql</i>.<br>
-                -<i>phpmyadmin, NetBeans</i>. <br>
-                -<i>Git ,github</i><br>
-                -Metodología <i>Scrum</i>
-              </p>
-        </div>
-        </figure>   
-        <figure>
-            <img src="../assets/img/pc.escritorio2.jpeg" alt="">
-            <div class="capa">
-              <h3>Programador Junior</h3>
-              <p>
-                Mantenimiento y desarrollo de bases de datos<br>
-                -Java 8.<br>
-                -<i>MySQL</i>.<br>                
-                -<i>POO</i>.<br>
-                -<i>sql</i>.<br>
-                -<i>phpmyadmin</i>.<br>
-                -<i>Git github</i><br>
-                -Metodología <i>Scrum</i>
-              </p>
-        </div>
-        </figure>    
-        <figure>
-            <img src="../assets/img/images (1).jpg" alt="">
-            <div class="capa">
-              <h3>Programador Junior</h3>
-              <p>
-                Mantenimiento y desarrollo de nuevas funcionalidades  para aplicativos web y móvil 
-              Utilizando herramientas como:<br>
-                -Java 8.<br>
-                -<i>MySQL</i>.<br>                
-                -<i>POO</i>.<br>
-                -<i>Angular (Curso en Proceso)</i>.<br>
-                -<i> Node JS(Curso en Proceso)</i> <br>                
-              </p>
-        </div>
-        </figure>      
-    </div>  
-    </section>
+ 
+      <div class="modal-footer">
+       <button
+       type="button"
+       
+       class="btn btn-secondary"
+       data-bs-dismiss="modal"
+       >
+       NO
+       </button>
+       <button
+       (click)="onDeleteProyecto(deleteProyecto!.idProyect)"
+       class="btn btn-primary"       
+      data-bs-dismiss="modal"
+       >
+       Si 
+       </button>
+     </div>
+      </div>
+     
+       
+     </div>
+   </div>
+ 
+   </div>
+ 
+    <!--mensaje -->
+   <div *ngIf="proyectos?.length == 0" class="col-lg-12 col-mg-12 col-xl-12">
+     <div class="alert alert-info" role="alert" >
+       <h4 class="alert-heading">NO HAY PROYECTOS!</h4>
+       <P>PROYECTOS NO ENCONTRADOS</P>
+     </div>
+   </div>
