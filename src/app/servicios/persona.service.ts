@@ -15,11 +15,26 @@ export class PersonaService {
 
   constructor(private http:HttpClient) { }
 
-  public getUser():Observable<Usuario>{
+  
+  public getUsuarioAll():Observable<Usuario>{
+    return this.http.get<Usuario>(`${this.apiServeUrl}/usuario/all`);
+  }
+  public getUsuario():Observable<Usuario>{
     return this.http.get<Usuario>(`${this.apiServeUrl}/usuario/id/1`);
   }
+
+  public addUsuario(usuario:Usuario):Observable<Usuario>{
+    return this.http.post<Usuario>(`${this.apiServeUrl}/usuario/id`,usuario);
+  }
+
+  public deleteUsuario(usuario: number):Observable<void>{
+    return this.http.delete<void>(`${this.apiServeUrl}/usuario/delete/${usuario}`);
+  }
+
 
   public updateUsuario(usuario:Usuario):Observable<Usuario>{
     return this.http.put<Usuario>(`${this.apiServeUrl}/usuario/update`,usuario);
   }
+  
 }
+
