@@ -1,15 +1,15 @@
 <!-- navegador -->
-<nav class="navbar navbar-dark  mb-1" *ngIf="encabezado">  
+<nav class="navbar navbar-dark  mb-1" *ngIf="miPorfolio">  
   <div class="container-fluid">
     <!-- logo_arg -->
   <article>        
-    <img [src]="" alt="error" class="logo_arg">           
+    <img [src]="miPorfolio.image" alt="error" class="logo_arg">           
   </article>  
      <!-- botones de contacto redes sociales-->
     <h2 class="redes">
-      <a class="fa-brands fa-whatsapp" [href]="" target="_blank"></a>
-      <a class="fa-brands fa-linkedin"  [href]="" target="_blank" ></a>
-      <a class="fa-brands fa-github" [href]="" target="_blank"></a>
+      <a class="fa-brands fa-whatsapp" [href]="miPorfolio.whatsapp" target="_blank"></a>
+      <a class="fa-brands fa-linkedin"  [href]="miPorfolio.linkedin" target="_blank" ></a>
+      <a class="fa-brands fa-github" [href]="miPorfolio.github" target="_blank"></a>
     </h2>
     <!-- botom de login -->
     <div>
@@ -62,10 +62,10 @@
           </button> 
         </div>
 
-       <!-- Foto de perfil-->
-        <div id="img">
+       <!-- Foto de perfil los dato vienen de JSON-->
+        <div id="img" *ngIf="miPorfolio">
           <article class="foto">
-            <img class="foto-scale" [src]="encabezado.fotoPerfilEnc"
+            <img class="foto-scale" [src]="miPorfolio.img"
               alt="LeonelCrespo">
           </article>
         </div>

@@ -30,4 +30,9 @@ export class EncabezadoService {
     return this.http.put<Encabezado>(`${this.apiServeUrl}/encabezado/update`,encabezado);
   }
 
+  odtenerDatos():Observable<any>{
+    return this.http.get("./assets/data/data.json");
+
+  }
+
 }

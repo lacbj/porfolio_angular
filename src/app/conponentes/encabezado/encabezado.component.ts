@@ -15,12 +15,24 @@ export class EncabezadoComponent implements OnInit {
 public encabezado:Encabezado|undefined;
 public editEncabezado: Encabezado| undefined;
 public deleteEncabezado :Encabezado | undefined;
+  miPorfolio:any;
 
 constructor(private encabezadoService:EncabezadoService) {}
 
     ngOnInit(): void {
       this.getEncabezado();
+      this.encabezadoService.odtenerDatos().subscribe(data=>{
+        console.log(data);
+        this.miPorfolio = data;
+        });
+
     }
+    
+            
+
+
+    
+    
   public getEncabezado(): void {
     this.encabezadoService.getEncabezado().subscribe({
       next:(response:Encabezado) =>{
