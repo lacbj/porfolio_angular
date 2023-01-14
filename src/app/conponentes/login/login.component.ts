@@ -1,4 +1,6 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,55 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  errorInicio:boolean = false;//variable agregada
+  loading:boolean = false;//variable agregada
+  user:any = {};//variable agregada
+  
+
+  constructor(private http: HttpClient){}//antes vacio
 
   ngOnInit(): void {
   }
+        login(){
+          let formulario:any = document.getElementById("login");
+          let formularioValido:boolean = formulario.reportValidity();
+          if(formularioValido){
+            this.loading = true;
+            this.loginService().subscribe(
+              data => this.iniciarSesion(data)
+            )
+
+          }
+        }
+
+        iniciarSesion(resultado:any){
+        this.loading = false;
+        if(resultado){
+        localStorage.setItem("user",JSON.stringify(resultado));
+        location.href = "/home";
+        }
+        else{
+        this.errorInicio = true;
+
+        }
+
+        }
+
+      loginService(){
+
+        var httpOptions = {
+          headers:new HttpHeaders({
+            'Content-type': 'application/json'
+          })
+        }
+        return this.http.post<any>("http://localhost:8080/user/login", this.user,httpOptions);
+
+      }
+
+      crearCuenta(){
+        location.href = "/signin"
+      }
+
+  
 
 }

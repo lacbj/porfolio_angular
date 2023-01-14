@@ -1,18 +1,85 @@
 
    
-      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <!-- <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Iniciar Secion</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="#">Recuerde no compartir sus datos</a>
             </li>
 
-            <li class="nav-item">
-            <!-- Login -->
+            <li class="nav-item"> -->
+               <!-- Login nuevo -->
+              <div class="container">
+                <div class="row pe-3">
+                    <div class="col-md-12 text-center">
+                        <h1>Bienvenidos a mi Portafolio</h1>
+                        <h4>Iniciar sesion para visualizar</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <hr>
+                    </div>
+                </div>
+            
+            
+                <div class="row" *ngIf="loading">
+                    <div class="col-md-12">
+                        <div class="spinner-border text-info float-right" role="status">
+                            <span class="sr-only">loading... </span>
+            
+                        </div>
+            
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            
+            
+            
+                <form (ngSubmit)= "login()" id="login">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" [(ngModel)]= "user.correo" [ngModelOptions]= "{standalone: true}" placeholder= "Correo" class="form-control" required>
+                                
+                        </div>
+                    </div>
+                    <br>
+            
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="password" [(ngModel)]= "user.password" [ngModelOptions]= "{standalone: true}" placeholder= "password" class="form-control" required>
+                                
+                        </div>
+                    </div>
+                    <br>
+            
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <button class="buttons" type="submit" value="Ingreso">Ingreso</button>
+                            <!--antes era un input  -->
+                        </div>
+                    </div>
+            
+            
+                </form>
+            
+            
+            
+                <br>
+            
+                <div class="row" *ngIf= "errorInicio">
+                    <label class="float-right" style="color: red;"> Usuario y password incorrecto</label>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class= "float-right">Para registrarte has click <a href="#" (click)= "crearCuenta()">AQUI</a>.</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Login 
     <section class="form-login" id="bancaOnline">
       <h5>ARGETINA PROGRAMA</h5>
       <input class="controls" type="text" name="usuario" value="" placeholder="Usuario">
@@ -38,6 +105,6 @@
           </ul>
          
         </div>
-      </div>
+      </div>-->
     
   

@@ -1,10 +1,23 @@
 
-<app-encabezado></app-encabezado>
-<app-acerca-de></app-acerca-de>
-<app-proyectos></app-proyectos>
-<app-experiencia></app-experiencia>
-<app-login></app-login> 
-<app-estudios></app-estudios>
-<app-progreso></app-progreso>
-<router-outlet></router-outlet>
+<div class="container">
+    <div class="row">
+    <div class="col-md-12">
 
+        <app-encabezado></app-encabezado>
+        <app-acerca-de></app-acerca-de>
+        <app-estudios></app-estudios>
+        <app-experiencia></app-experiencia>
+        <app-progreso></app-progreso>
+        <app-proyectos></app-proyectos>
+       
+
+<h1>Bienvenidos {{user.name + "" + user.apellido}}</h1>
+    </div>
+    <div class="col-md-12">
+       <hr>
+    </div> 
+</div>
+<div class="row">
+    <div class="col-md-12">
+<a href="#" (click)="logout()"> Cerrar sesion </a>
+</div>
