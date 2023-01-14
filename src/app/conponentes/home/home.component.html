@@ -1,23 +1,25 @@
 
-<div class="container">
+<div class="container" *ngIf="user ">
     <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12">  
 
-        <app-encabezado></app-encabezado>
-        <app-acerca-de></app-acerca-de>
-        <app-estudios></app-estudios>
-        <app-experiencia></app-experiencia>
-        <app-progreso></app-progreso>
-        <app-proyectos></app-proyectos>
-       
-
-<h1>Bienvenidos {{user.name + "" + user.apellido}}</h1>
+        <h1>Bienvenidos ¡gracias por ingresar a mi portafolio web!</h1>
     </div>
     <div class="col-md-12">
        <hr>
     </div> 
-</div>
-<div class="row">
-    <div class="col-md-12">
-<a href="#" (click)="logout()"> Cerrar sesion </a>
-</div>
+    </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+            <a class="btn btn-primary" href="#" (click)="logout()"> Cerrar sesion </a>
+            </div>
+                <app-encabezado></app-encabezado>
+                <app-acerca-de></app-acerca-de>
+                <app-estudios></app-estudios>
+                <app-experiencia></app-experiencia>
+                <app-progreso></app-progreso>
+                <app-proyectos></app-proyectos>
+
+        </div>
+    </div>     
+

@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from } from 'rxjs';
+import { from, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { User } from '../model/user';
 
 
 
@@ -8,22 +11,20 @@ import { from } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  
 
-  constructor() { }
+  private apiServeUrl=environment.apiBaseUrl;
+   
+  constructor(private http:HttpClient) { }
+
+  public getUser():Observable<User[]>{
+    return this.http.get<User[]>(`${this.apiServeUrl}/user/buscar`);
+  }
+
 
   
   }
 
-  /*login({ email, password }: any) {
-    return signInWithEmailAndPassword(this.auth, email, password);
-  }
-
-  loginWithGoogle() {
-    return signInWithPopup(this.auth, new GoogleAuthProvider());
-  }
-
-  logout() {
-    return signOut(this.auth);
-  }*/
+  
 
 

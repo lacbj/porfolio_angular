@@ -25,8 +25,10 @@
         </ul>
       </div>
   
-           <!-- Reloj-->
-      <article class="col-4"> 
+           <!-- Reflexion y Reloj comentado-->
+      <article class="col-4" *ngIf="miPorfolio"> 
+        <img [src]="miPorfolio.reflex" alt="error" class="reflexion"> 
+        <!-- Reloj
         <section class="reloj_contenedor">    
           <div class="wrap">
             <div class="widget">
@@ -50,7 +52,7 @@
             </div>
           </div>
         </div>
-        </section>  
+        </section> --> 
       </article>
 
           <!-- Datos y boton editar-->

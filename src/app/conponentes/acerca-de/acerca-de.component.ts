@@ -14,12 +14,19 @@ export class AcercaDeComponent implements OnInit {
   public usuario:Usuario |undefined;
   public editUsuario:Usuario |undefined; 
   public deleteUsuario :Usuario | undefined;
+  miPorfolio:any;
  
 
   constructor(public personaService:PersonaService) { } 
 
   ngOnInit(): void {
     this.getUsuario();
+    this.personaService.odtenerDatos().subscribe(data=>{
+      console.log(data);
+      this.miPorfolio = data;
+      });
+
+
   }
 
   public getUsuario(): void {

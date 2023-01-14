@@ -20,7 +20,7 @@ import { HomeComponent } from './conponentes/home/home.component';
 import { LoginComponent } from './conponentes/login/login.component';
 import {  FormsModule } from '@angular/forms';
 import { ProgresoComponent } from "./conponentes/progreso/progreso.component";
-import { SigninComponent } from './signin/signin.component';
+import { SigninComponent } from './conponentes/signin/signin.component';
 
 
 @NgModule({
