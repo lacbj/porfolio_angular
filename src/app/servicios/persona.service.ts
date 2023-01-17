@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 })
 export class PersonaService {
 
-  private apiServeUrl=environment.apiBaseUrl;
+  private apiServeUrl=environment.production;
 
   constructor(private http:HttpClient) { }
 

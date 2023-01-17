@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class EncabezadoService {
 
-  private apiServeUrl=environment.apiBaseUrl;
+  private apiServeUrl=environment.production;
 
 
   constructor(private http:HttpClient) { }
