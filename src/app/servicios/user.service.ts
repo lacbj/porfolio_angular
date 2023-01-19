@@ -13,7 +13,7 @@ import { User } from '../model/user';
 export class UserService {
   
 
-  private apiServeUrl=environment.production;
+  private apiServeUrl=environment.apiServerUrl;
    
   constructor(private http:HttpClient) { }
 

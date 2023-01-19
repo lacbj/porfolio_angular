@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ExperienciaService {
 
-  private apiServeUrl=environment.production;
+  private apiServeUrl=environment.apiServerUrl;
 
 
   constructor(private http:HttpClient) { }
