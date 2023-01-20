@@ -1,8 +1,8 @@
 /*aceca-de*/
 .foto-acerca-de{
       
-  height: 100px;
-  width: 200px;
+  height: 81px;
+  width: 81px;
 
 }
 .reflexion{
@@ -35,8 +35,8 @@
 /*estudios*/
 .foto-estudios{
       
-  height: 50%;
-  width: 50%;
+  height: 100px;
+  width: 100px;
 
 }
 /*experiencia*/
@@ -153,4 +153,34 @@ div.h4 {
   border-radius: 50%;
 
 }
+.row{
+  flex-direction: row;
+  
+}
 
+@media screen  and (max-width: 500px){
+.row{
+  flex-direction: column;
+  align-content:space-around;
+}
+.container{ 
+  text-align: center;
+
+  
+}
+.foto-proyectos{
+      
+  height: 81px;
+  width: 81px;
+  border-radius: 50%;
+
+}
+
+.foto-estudios{
+      
+  height: 81px;
+  width: 81px;
+
+}
+
+}

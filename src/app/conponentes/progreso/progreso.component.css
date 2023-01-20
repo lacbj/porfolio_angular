@@ -107,3 +107,30 @@
   div.h4 {
     line-height: 1rem;
   }
+
+  @media screen  and (max-width: 500px){
+    .row{
+      flex-direction: column;
+      align-content:space-around;
+    }
+    .container{ 
+      text-align: center;
+    
+      
+    }
+    .foto-proyectos{
+          
+      height: 81px;
+      width: 81px;
+      border-radius: 50%;
+    
+    }
+    
+    .foto-estudios{
+          
+      height: 81px;
+      width: 81px;
+    
+    }
+    
+    }
