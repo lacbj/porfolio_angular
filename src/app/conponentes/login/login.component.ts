@@ -54,8 +54,8 @@ export class LoginComponent implements OnInit {
 
       }
 
-      crearCuenta(){
-        location.href = "/signin"
+      volverVista(){
+        location.href = "/vista-home"//esta funcion parece actuar por default
       }
 
   

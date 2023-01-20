@@ -35,8 +35,8 @@
 /*estudios*/
 .foto-estudios{
       
-  height: 100px;
-  width: 100px;
+  height: 50%;
+  width: 50%;
 
 }
 /*experiencia*/
@@ -153,3 +153,4 @@ div.h4 {
   border-radius: 50%;
 
 }
+

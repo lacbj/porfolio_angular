@@ -132,6 +132,10 @@ export class VistaHomeComponent implements OnInit {
     location.href = "/login"
   }
 
+  registrarse(){
+    location.href = "/signin"
+  }
+
 
 }
 
