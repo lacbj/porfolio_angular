@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
       }
 
       crearCuenta(){
-        location.href = "../signin"
+        location.href = "/signin"
       }
 
   

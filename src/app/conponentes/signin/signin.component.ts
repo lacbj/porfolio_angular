@@ -55,7 +55,7 @@ else{
 
   regresar(){
 
-    location.href = "../login";
+    location.href = "login";
   }
    
 
