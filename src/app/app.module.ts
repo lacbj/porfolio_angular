@@ -21,6 +21,7 @@ import { LoginComponent } from './conponentes/login/login.component';
 import {  FormsModule } from '@angular/forms';
 import { ProgresoComponent } from "./conponentes/progreso/progreso.component";
 import { SigninComponent } from './conponentes/signin/signin.component';
+import { VistaHomeComponent } from './conponentes/vista-home/vista-home.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SigninComponent } from './conponentes/signin/signin.component';
         HomeComponent,
         LoginComponent,
         ProgresoComponent,
-        SigninComponent
+        SigninComponent,
+        VistaHomeComponent        
     ],
     providers: [
         ColoresService

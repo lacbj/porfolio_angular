@@ -50,12 +50,12 @@ else{
         'Content-type': 'application/json'
       })
     }
-    return this.http.post<any>("http://localhost:8080/user/guardar", this.user,httpOptions);
+    return this.http.post<any>("https://argprogramaportafolio.onrender.com/user/guardar", this.user,httpOptions);
   }
 
   regresar(){
 
-    location.href = "/";
+    location.href = "../login";
   }
    
 

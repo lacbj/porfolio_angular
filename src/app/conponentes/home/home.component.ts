@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
     this.getUsers();
     this.user = JSON.stringify(localStorage.getItem("user"));
     if(!this.user){
-      location.href = "/";
+      location.href = "/home";
     }
     
   }//este metodo agregado antes estaba vacio

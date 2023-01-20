@@ -50,12 +50,12 @@ export class LoginComponent implements OnInit {
             'Content-type': 'application/json'
           })
         }
-        return this.http.post<any>("http://localhost:8080/user/login", this.user,httpOptions);
+        return this.http.post<any>("https://argprogramaportafolio.onrender.com/user/login", this.user,httpOptions);
 
       }
 
       crearCuenta(){
-        location.href = "/signin"
+        location.href = "../signin"
       }
 
   
